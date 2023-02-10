@@ -12,7 +12,9 @@ function preload() { // preload() runs once
         var img = loadImage("assets/"+i+".jpg", imageloadSuccess);
         imgs.push(img);
     }
+    img2 = loadImage("assets/0.jpg")
 }
+  
 
 //add in a imageloadSuccess call back function this function is call back 
 //by loadImage() in preload() when an image is successfully loaded
@@ -21,7 +23,7 @@ function imageloadSuccess(){
 }
 //////////////////////////////////////////////////////////
 function setup() {
-    createCanvas(512, 512);
+    createCanvas(1012, 512);
     pixelDensity(1);
 }
 //////////////////////////////////////////////////////////
@@ -35,10 +37,15 @@ function draw() {
     }
     //calling average face function
     var img = averageFace(imgs);
-    image(img,0,0);
+    image(img,500,0);
+    image(img2,0,0);
     console.log("All images loaded, ready for average face");
     noLoop();
 
+}
+
+function mouseClicked(){
+    image(random(imgs),0,0);
 }
 
 //Average face algo
